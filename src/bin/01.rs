@@ -1,21 +1,30 @@
 advent_of_code::solution!(1);
 
 pub fn part_one(input: &str) -> Option<i32> {
-    Some(input.chars().map(|c| match c {
-        '(' => 1,
-        ')' => -1,
-        _ => 0,
-    }).sum::<i32>())
+    Some(
+        input
+            .chars()
+            .map(|c| match c {
+                '(' => 1,
+                ')' => -1,
+                _ => 0,
+            })
+            .sum::<i32>(),
+    )
 }
 
 pub fn part_two(input: &str) -> Option<u32> {
     let mut counter = 0;
     let mut result = 0;
-    for (i, n) in input.chars().map(|c| match c {
-        '(' => 1,
-        ')' => -1,
-        _ => 0,
-    }).enumerate() {
+    for (i, n) in input
+        .chars()
+        .map(|c| match c {
+            '(' => 1,
+            ')' => -1,
+            _ => 0,
+        })
+        .enumerate()
+    {
         counter += n;
         if counter < 0 {
             result = i + 1;
